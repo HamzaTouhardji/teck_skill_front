@@ -1,14 +1,17 @@
 import React from 'react';
 import { Col, Container, Row} from 'react-bootstrap';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import NavigationBar from './components/NavigationBar';
 import Welcome from './components/Welcome';
 import Footer from './components/footer';
-//https://www.youtube.com/watch?v=WKkM5rFed2g&list=PLZdfbI_OZWAMvhSl32tFcD6M9x_Pqtkwb&index=3
+import Games from './components/games';
+import ListUsersComponent from './components/crud/ListUsersComponent'
+import CreateUserComponent from './components/crud/CreateUserComponent'
+import ViewUserComponent from './components/crud/ViewUserComponent'
+import UpdateUserComponent from './components/crud/UpdateUserComponent'
 
-//7:13
 
-//https://github.com/mightyjava/book-rest-api-reactjs/blob/master/src/main/webapp/reactjs/src/components/NavigationBar.js
 function App() {
 
   const marginTop = {
@@ -16,15 +19,25 @@ function App() {
   }
   return (
     <div className="App">
-      <NavigationBar />
+<Router>
+      
+      <NavigationBar /> 
       <Container>
         <Row>
-          <Col lg={12} style={marginTop}>
-            <Welcome />
+          <Col className="container" lg={12} style={marginTop}>
+            <Switch>
+              <Route path="/" exact component={Welcome} />
+              <Route path="/quiz" exact component={Games}/>
+              <Route path="/users" exact component={ListUsersComponent} />
+              <Route path = "/add-user/:id" component = {CreateUserComponent}></Route>
+              <Route path = "/view-user/:id" component = {ViewUserComponent}></Route>
+              <Route path = "/update-user/:id" component = {UpdateUserComponent}></Route>
+            </Switch>
           </Col>
         </Row>
       </Container>
       <Footer />
+      </Router>
       </div>
   );
 }
