@@ -60,7 +60,7 @@ class ListUsersComponent extends Component {
                                     user => 
                                     <tr key = {user.id}>
                                         <td> {user.id} </td>
-                                        <td> {user.name} </td>
+                                        <td> {user.username} </td>
                                         <td> {user.email} </td>
                                         <td>
                                             <button onClick={ () => this.editUser(user.id)} className="btn btn-info">Modifier </button>

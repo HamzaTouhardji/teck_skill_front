@@ -5,16 +5,20 @@ import {Link} from 'react-router-dom';
 class NavigationBar extends Component {
     render(){
         return (
-            <Navbar bg="dark" variant="dark">
+            <Navbar className="mb-5" bg="light" expand="lg">
+                <Navbar.Brand href="#home">
                 <Link to={""} className="navbar-brand">
-                    <img src="https://cdn0.iconfinder.com/data/icons/communication-technology/500/code_brackets-512.png" width="70" height="70" alt="brand"/>
-                    Tech Skills
-                </Link>
-                <Nav className="mr-auto">
-                    <Link to={"quiz"} className="nav-link">Quiz</Link>
-                    <Link to={"users"} className="nav-link">Utilisateurs</Link>
-
-                </Nav>
+                        <img src="../../logo.png" width="50" height="50" alt="brand"/>&nbsp;
+                        Tech Skills
+                    </Link>
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Nav.Link href="users" className="nav-link">Utilisateurs</Nav.Link>
+                        <Nav.Link href="profile" className="nav-link">Mon compte</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
             </Navbar>
         );
     } 
